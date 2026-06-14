@@ -1341,9 +1341,7 @@
     }
 
     _onTap(e) {
-      // Touch-only — keyboard + the overlay toolbar cover nav on desktop.
-      if (FINE_POINTER_MQ.matches) return;
-      // Only taps that land on the stage (slide content or letterbox); the
+      // Only taps/clicks that land on the stage (slide content or letterbox); the
       // overlay / rail / menus are siblings with their own click handlers.
       const path = e.composedPath();
       if (!this._stage || !path.includes(this._stage)) return;
@@ -1383,7 +1381,7 @@
       const key = e.key;
       let handled = true;
 
-      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar' || key === 'Enter') {
         this._advance(1, 'keyboard');
       } else if (key === 'ArrowLeft' || key === 'PageUp') {
         this._advance(-1, 'keyboard');
